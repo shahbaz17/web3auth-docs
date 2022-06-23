@@ -7,23 +7,27 @@ displayed_sidebar: apiReference
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 
-import UIConfig from "./references/_ui-config.mdx";
-import UIConfigWhitelabelExample from "./references/_ui-config-whitelabel-example.mdx";
-import Web3AuthOptions from "./references/_web3auth-options.mdx";
-import ChainConfig from "./references/_chain-config.mdx";
-import SubscribeEvents from "./references/_subscribe-events.mdx";
-import ExternalWalletAdapters from "./references/_external-wallet-adapters.mdx";
-import OpenloginAdapter from "./references/_openlogin-adapter.mdx";
-import CustomAuthenticationExample from "./references/_custom-authentication-example.mdx";
-import ModalConfig from "./references/_modal-config.mdx";
-import InitModalConfigExample from "./references/_init-modal-config-example.mdx";
+import UIConfig from "../references/_ui-config.mdx";
+import UIConfigWhitelabelExample from "../references/_ui-config-whitelabel-example.mdx";
+import Web3AuthOptions from "../references/_web3auth-options.mdx";
+import ChainConfig from "../references/_chain-config.mdx";
+import SubscribeEvents from "../references/_subscribe-events.mdx";
+import ExternalWalletAdapters from "../references/_external-wallet-adapters.mdx";
+import OpenloginAdapterIntro from "../references/_openlogin-adapter-intro.mdx";
+import CustomAuthenticationWeb3AuthExample from "../references/_custom-authentication-web3auth-example.mdx";
+import PluginsIntro from "../references/_plugins-intro.mdx";
+import PluginsExample from "../references/_plugins-example.mdx";
+import ModalConfig from "../references/_modal-config.mdx";
+import InitModalConfigExample from "../references/_init-modal-config-example.mdx";
 
 ---
 
-After Installation, the next step to use Web3Auth is to Initialize the SDK. However, the Initialization is a three step process, ie.
+After Installation, the next step to use Web3Auth is to Initialize the SDK. However, the Initialization is a two step process, with additional two
+steps for customisations, ie.
 
 - [Instantiation of Web3Auth](#instantiating-web3auth)
 - [Configuration of Adapters](#configuring-adapters) _(optional)_
+- [Configuration of Plugins](#configuring-plugins) _(optional)_
 - [Initialization of Modal](#initializing-modal)
 
 Please note that these are the most critical steps where you need to pass on different parameters according to the preferences of your project.
@@ -131,24 +135,7 @@ required to be configured always based on the `authMode` you are using.
 
 ### Configuring Openlogin Adapter
 
-<OpenloginAdapter />
-
-#### Custom Authentication
-
-##### `loginConfig`
-
-With the Web3Auth Plug and Play SDK, you have the option to configure logins using your own authentication services corresponding to the different
-login options available in the modal. For adding your own authentication, you have to first configure your verifiers in the Web3Auth Dashboard. Have a
-look at our [Custom Authentication Documentation](/docs/custom-authentication/) for configuring that first.
-
-Custom Authentication in Web3Auth is supported by the Openlogin Adapter, which is the default adapter for the Web3Auth SDK. For this, you need to
-configure the `loginConfig` parameter in the `openlogin-adapter` package.
-
-:::tip
-
-Refer to the [Custom Authentication Documentation](./custom-authentication) for more information.
-
-:::
+<OpenloginAdapterIntro />
 
 ##### Example
 
@@ -156,7 +143,7 @@ Since we're using the `@web3auth/web3auth`, ie. the Plug and Play SDK, the `logi
 modal. Here, we're customising Google and Facebook to be custom verified, rest all other socials will be default. You can customise other social
 logins or remove them using the whitelabeling option.
 
-<CustomAuthenticationExample />
+<CustomAuthenticationWeb3AuthExample />
 
 ### Configuring External Wallet Adapters
 
@@ -165,6 +152,16 @@ logins or remove them using the whitelabeling option.
 ### Subscribing the Lifecycle Events
 
 <SubscribeEvents />
+
+## Configuring Plugins
+
+---
+
+<PluginsIntro />
+
+### Example
+
+<PluginsExample />
 
 ## Initializing Modal
 
